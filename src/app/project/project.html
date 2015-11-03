@@ -1,0 +1,98 @@
+<div class="container">
+
+    <div class="page-header">
+        <h1><a href="#" editable-text="config.title">{{ config.title || 'Site title' }}</a></h1>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>Image path : <a href="#" editable-text="config.header.img">{{ config.header.img || 'empty' }}</a></p>
+
+            <p> Theme colour: <a href="#" editable-select="config.theme"
+                                 e-ng-options="t.value as t.text for t in themes">
+                {{ showTheme() }}
+            </a></p>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h2>Header</h2>
+
+            <p>Title : <a href="#" editable-text="config.header.title">{{ config.header.title || 'empty' }}</a></p>
+
+            <p>Body : <a href="#" editable-textarea="config.header.body" e-rows="7" e-cols="40">{{ config.header.body ||
+                'empty' }}</a></p>
+
+            <p>Button text: <a href="#" editable-textarea="config.header.button.text" >{{
+                config.header.button.text || 'empty' }}</a></p>
+
+            <p>Button link: <a href="#" editable-textarea="config.header.button.link" >{{
+                config.header.button.link || 'empty' }}</a></p>
+        </div>
+    </div>
+
+
+    <div ng-repeat="section in config.sections" class="panel panel-default">
+        <div ng-if="section.type=='about'" class="panel-body">
+            <h2><a href="#" editable-text="section.menu_item">{{ section.menu_item || 'empty' }}</a></h2>
+
+            <p>Title : <a href="#" editable-text="section.title">{{ section.title || 'empty' }}</a></p>
+
+            <p>Body : <a href="#" editable-textarea="section.body" e-rows="7" e-cols="40">{{ section.body || 'empty'
+                }}</a></p>
+
+            <p>Button : <a href="#" editable-textarea="section.button.text" e-rows="7" e-cols="40">{{
+                section.button.text || 'empty' }}</a></p>
+
+        </div>
+
+        <div ng-if="section.type=='services'" class="panel-body">
+
+            <h2><a href="#" editable-text="section.title">{{ section.title || 'empty' }}</a></h2>
+
+            <div ng-repeat="service in section.services" class="panel panel-default">
+                <div class="panel-body">
+                    <p>Service title : <a href="#" editable-text="service.title">{{ service.title || 'empty' }}</a></p>
+
+                    <p>Service font-awsome icon id : <a href="#" editable-text="service.icon">{{ service.icon || 'empty'
+                        }}</a></p>
+
+                    <p>Service body : <a href="#" editable-text="service.body">{{ service.body || 'empty' }}</a></p>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div ng-if="section.type=='aside'" class="panel-body">
+
+            <h2><a href="#" editable-text="section.title">{{ section.title || 'Aside title' }}</a></h2>
+
+            <p>Button : <a href="#" editable-text="section.button.text" >{{
+                section.button.text || 'empty' }}</a></p>
+
+        </div>
+
+        <div ng-if="section.type=='contact'" class="panel-body">
+
+            <h2><a href="#" editable-text="section.title">{{ section.title || 'Contact title' }}</a></h2>
+
+            <p>Body : <a href="#" editable-textarea="section.body" e-rows="7" e-cols="40">{{ section.body || 'empty'
+                }}</a></p>
+
+            <p>Phone : <a href="#" editable-text="section.phone">{{ section.phone || 'empty'
+                }}</a></p>
+
+            <p>Email : <a href="#" editable-text="section.email" >{{ section.email || 'empty'
+                }}</a></p>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
